@@ -12,12 +12,13 @@ public class Queue<T> {
 	// 큐에 요소 추가 (enqueue)
 	public void enqueue(T data) {
 		Node<T> node = new Node<>(data);
-		if (first == null) {
-			first = node;
-		} else {
+		if (last != null) {
 			last.next = node;
 		}
 		last = node;
+		if (first == null) {
+			first = last;
+		}
 	}
 	// 큐가 비어있는지 여부 확인
 	private boolean isEmpty() {
