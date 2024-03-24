@@ -20,7 +20,7 @@ public class Practice5_1 {
 	public static void main(String[] args) {
 		Practice5_1 p = new Practice5_1();
 		Scanner sc = new Scanner(System.in);
-		String str = sc.nextLine();
+		String str = sc.next();
 		System.out.println(p.solution(str));
 	}
 }
