@@ -4,15 +4,7 @@ import java.util.Scanner;
 
 public class Practice6_1 {
 	public static int[] solution(int[] arr, int num) {
-		for (int i = 0; i<num; i++) {
-			int minIndex = i;
-			for (int j = i; j<num; j++) {
-				if (arr[minIndex]>arr[j]) minIndex = j;
-			}
-			int tmp = arr[i];
-			arr[i] = arr[minIndex];
-			arr[minIndex] = tmp;
-		}
+
 		return arr;
 	}
 	public static void main(String[] args) {
