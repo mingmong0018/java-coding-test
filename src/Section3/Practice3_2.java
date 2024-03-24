@@ -1,32 +1,28 @@
 package Section3;
 
+import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Practice3_2 {
-	public ArrayList<Integer> solution(int[] arr1, int[] arr2) {
+	public void solution(int[] arr1, int[] arr2) {
 		ArrayList<Integer> answer = new ArrayList<>();
-		for (int i = 0; i < arr1.length; i++) {
-			for (int j = 0; j < arr2.length; j++) {
-				if (arr1[i] == arr2[j]) {
-					answer.add(arr1[i]);
-					break;
-				}
+		Arrays.sort(arr1);
+		Arrays.sort(arr2);
+		int p1=0,p2=0;
+		while(p1<arr1.length && p2<arr2.length) {
+			if (arr1[p1]<arr2[p2]) p1++;
+			else if (arr1[p1]>arr2[p2]) p2++;
+			else {
+				answer.add(arr1[p1]);
+				p1++;
+				p2++;
 			}
 		}
-		// 8 6 5 2 3 4
-		// 6 8 5 2 3 4
-		//
-		for (int i = 0; i < answer.size(); i++) {
-			for (int j = 0; j < answer.size()- 1 - i; j++) {
-				if (answer.get(j) > answer.get(j + 1)) {
-					int tmp = answer.get(j);
-					answer.set(j + 1, answer.get(j));
-					answer.set(j, tmp);
-				}
-			}
+ 		for (int i : answer) {
+			System.out.print(i+" ");
 		}
-		return answer;
 	}
 	public static void main(String[] args) {
 		Practice3_2 p = new Practice3_2();
@@ -41,6 +37,6 @@ public class Practice3_2 {
 		for (int i = 0; i < num2; i++) {
 			arr2[i] = sc.nextInt();
 		}
-		for(int x : p.solution(arr1, arr2)) System.out.print(x + " ");
+		p.solution(arr1, arr2);
 	}
 }
