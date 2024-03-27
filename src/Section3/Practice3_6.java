@@ -4,17 +4,16 @@ import java.util.Scanner;
 
 public class Practice3_6 {
 	public int solution(int[] arr, int k) {
-		int answer = 0, p = 0, count = 0;
+		int answer = 0, count = 0, p = 0;
 		for (int i = 0; i<arr.length; i++) {
-			if (arr[i] == 0) {
-				count++;
-			}
-			while (count > k) {
-				if (arr[p] == 0)count--;
+			if (arr[i] == 0) count++;
+			while(count>k) {
+				if (arr[p]==0) count--;
 				p++;
 			}
-			if (answer < i - p + 1) answer = i - p + 1;
+			answer = Integer.max(answer, i-p+1);
 		}
+
 		return answer;
 	}
 	public static void main(String[] args) {
