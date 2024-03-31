@@ -1,6 +1,5 @@
 package Section6;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Practice6_9 {
