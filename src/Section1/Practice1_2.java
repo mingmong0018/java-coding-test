@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class Practice1_2 {
     public String solution(String str) {
         String answer = "";
-        for (int i = 0; i < str.length(); i++) {
-            if (Character.isLowerCase(str.charAt(i))) answer += Character.toUpperCase(str.charAt(i));
-            else answer += Character.toLowerCase(str.charAt(i));
+        for (char c: str.toCharArray()) {
+            if (Character.isUpperCase(c)) answer+=Character.toLowerCase(c);
+            else answer+=Character.toUpperCase(c);
         }
         return answer;
     }
