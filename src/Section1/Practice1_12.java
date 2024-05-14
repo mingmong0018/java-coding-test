@@ -4,11 +4,10 @@ import java.util.Scanner;
 
 public class Practice1_12 {
     public String solution(String str, int count) {
-		String answer= "";
+		String answer = "";
         str = str.replace('#','1').replace('*','0');
-        for (int i = 0; i<count; i++) {
-            String tmp = str.substring(0,7);
-            answer+=(char)Integer.parseInt(tmp,2);
+        for (int i = 0; i<count; i++){
+            answer += (char)Integer.parseInt(str.substring(0,7), 2);
             str = str.substring(7);
         }
 		return answer;

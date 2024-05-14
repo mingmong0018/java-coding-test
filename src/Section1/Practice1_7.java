@@ -1,18 +1,14 @@
 package Section1;
 
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Practice1_7 {
     public String solution(String str) {
-      String answer="YES";
-      str = str.toUpperCase();
-      for (int i = 0; i<str.length()/2; i++) {
-          if (str.charAt(i) != str.charAt(str.length()-1-i)) {
-              answer = "NO";
-              break;
-          }
-      }
+      String answer = "YES";
+      String oldStr = str.toLowerCase();
+      String newStr = new StringBuilder(oldStr).reverse().toString();
+      if (!oldStr.equals(newStr)) answer = "NO";
+
       return answer;
     }
 

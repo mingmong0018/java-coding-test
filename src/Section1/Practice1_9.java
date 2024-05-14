@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class Practice1_9 {
     public int solution(String str) {
-		int answer = 0;
-		str = str.replaceAll("[^0-9]","");
-		answer = Integer.valueOf(str);
+		str = str.toLowerCase().replaceAll("^[a-z]", "");
+		System.out.println(str);
+		int answer = Integer.parseInt(str);
 		return answer;
     }
 

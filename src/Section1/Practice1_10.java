@@ -1,27 +1,19 @@
 package Section1;
 
-import java.util.ArrayList;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Practice1_10 {
 	public int[] solution(String str, char c) {
 		int[] answer = new int[str.length()];
-		ArrayList<Integer> tmp = new ArrayList<>();
-		for (int i = 0;i<str.length();i++) {
-			answer[i] = 100;
+		int p = 1001;
+		for (int i = 0; i<str.length(); i++) {
+			if (str.charAt(i) == c) p = i;
+			answer[i] = Math.abs(p-i);
 		}
-		for (int i = 0 ; i<str.length(); i++ ) {
-			if (str.charAt(i) == c) tmp.add(i);
+		for (int i = str.length() - 1; i>=0; i--) {
+			if (str.charAt(i) == c) p = i;
+			if (Math.abs(p-i)<answer[i]) answer[i] = Math.abs(p-i);
 		}
-		for (int i = 0; i<tmp.size();i++) {
-			for (int j = 0;j<str.length();j++) {
-				if (answer[j]>Math.abs(tmp.get(i) - j)) {
-					answer[j] = Math.abs(tmp.get(i) - j);
-				}
-			}
-		}
-
 		return answer;
     }
 
