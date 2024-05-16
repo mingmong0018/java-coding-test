@@ -3,19 +3,16 @@ package Section2;
 import java.util.Scanner;
 
 public class Practice2_10 {
-	public int solution(int[][] arr) {
+	public int solution(int[][] arr, int num) {
 		int answer = 0;
-		for (int i = 1; i<arr.length - 1; i++) {
-			for (int j = 1; j<arr.length-1; j++) {
-				int max = 0;
-				if (max<arr[i-1][j]) max = arr[i-1][j];
-				if (max<arr[i][j+1]) max = arr[i][j+1];
-				if (max<arr[i][j-1]) max = arr[i][j-1];
-				if (max<arr[i+1][j]) max = arr[i+1][j];
-				if (max<arr[i][j]) answer++;
+		for (int i = 1; i<num+2; i++) {
+			for (int j = 1; j<num+2; j++) {
+				if (arr[i][j] > arr[i-1][j]
+					&& arr[i][j] > arr[i][j+1]
+					&& arr[i][j] > arr[i+1][j]
+					&& arr[i][j] > arr[i][j-1]) answer++;
 			}
 		}
-
 		return answer;
 	}
 
@@ -29,7 +26,7 @@ public class Practice2_10 {
 				arr[i][j] = sc.nextInt();
 			}
 		}
-		System.out.println(p.solution(arr));
+		System.out.println(p.solution(arr, num));
 
 	}
 }

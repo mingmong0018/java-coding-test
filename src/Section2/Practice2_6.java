@@ -5,36 +5,38 @@ import java.util.Scanner;
 
 // 뒤집은 소수
 public class Practice2_6 {
-    public boolean isPrime(int num) {
+    private boolean isPrime (int num) {
         if (num == 1) return false;
+        if (num == 2) return true;
         for (int i = 2; i<num; i++) {
-            if (num%i ==0) return false;
+            if (num%i==0) return false;
         }
         return true;
     }
-    public ArrayList<Integer> solution(int[] arr){
+    public ArrayList<Integer> solution (int num, int[] arr) {
         ArrayList<Integer> answer = new ArrayList<>();
-        for(int i = 0; i<arr.length; i++) {
-            int tmp = arr[i];
+        for (int i = 0; i<num; i++) {
             int sum = 0;
-            while(tmp>0) {
-                sum = (sum*10) + (tmp%10);
-                tmp=tmp/10;
+            int tmp = arr[i];
+            while(tmp!=0) {
+                sum = sum * 10 + (tmp%10);
+                tmp /= 10;
             }
-            if (isPrime(sum)) answer.add(sum);
+            arr[i] = sum;
+            if (isPrime(arr[i])) answer.add(arr[i]);
         }
         return answer;
     }
     public static void main(String[] args) {
         Practice2_6 p = new Practice2_6();
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int[] arr = new int[n];
-        for (int i = 0; i<n; i++) {
+        int num = sc.nextInt();
+        int[] arr = new int[num];
+        for (int i = 0; i<num; i++) {
             arr[i] = sc.nextInt();
         }
-        for (int x : p.solution(arr)) {
-            System.out.print(x+" ");
+        for (int k: p.solution(num, arr)) {
+            System.out.print(k + " ");
         }
 
     }
