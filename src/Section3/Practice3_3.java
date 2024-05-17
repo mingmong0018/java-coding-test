@@ -4,12 +4,15 @@ import java.util.Scanner;
 
 public class Practice3_3 {
 	public int solution(int[] arr, int k) {
-		int answer = 0, sum = 0;
-		for (int i = 0; i<k; i++) sum += arr[i];
+		int answer = 0;
+		int sum = 0;
+		for (int i = 0; i<k; i++) {
+			sum+=arr[i];
+		}
 		answer = sum;
-		for (int i = k; i<arr.length; i++) {
-			sum+=arr[i]-arr[i-k];
-			if(answer<sum) answer = sum;
+		for (int i = 0; i<arr.length-k-1; i++) {
+			sum = sum - arr[i] + arr[i+k];
+			answer = Integer.max(answer, sum);
 		}
 		return answer;
 	}

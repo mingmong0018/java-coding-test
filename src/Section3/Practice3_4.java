@@ -4,19 +4,23 @@ import java.util.Scanner;
 
 public class Practice3_4 {
 	public int solution(int[] arr, int m) {
-		int answer = 0, sum = 0, p=0;
-		for (int i = 0; i<arr.length; i++) {
-			sum+=arr[i];
-			while (sum>m) {
-				sum = sum - arr[p++];
+		int answer = 0;
+		int sum = 0;
+		int lt = 0;
+		for (int rt = 0; rt<arr.length; rt++) {
+			sum += arr[rt];
+			if (sum == m) answer ++;
+			else if (sum > m) {
+				while(lt<rt) {
+					sum -= arr[lt];
+					lt++;
+					if (sum == m) answer++;
+					else if (sum < m) break;
+				}
 			}
-			if (sum==m) {
-				answer++;
-			}
+
 
 		}
-
-
 		return answer;
 	}
 	public static void main(String[] args) {
