@@ -1,16 +1,21 @@
-package PhoneBill.RemoveDuplicatedCode_Abstract;
+package PhoneBill.RemoveDuplicatedCode_Composition;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractPhone {
+public class Phone {
+	private RatePolicy ratePolicy;
 	private List<Call> calls = new ArrayList<>();
-	public Money calculateFee() {
-		Money result = Money.ZERO;
-		for (Call call:calls) {
-			result = result.plus(calculateCallFee(call));
-		}
-		return result;
+
+	public Phone(RatePolicy ratePolicy) {
+		this.ratePolicy = ratePolicy;
 	}
-	protected abstract Money calculateCallFee(Call call);
+
+	public List<Call> getCalls() {
+		return calls;
+	}
+
+	public Money calculateFee() {
+		return ratePolicy.calculateFee(this);
+	}
 }

@@ -1,17 +1,15 @@
-package PhoneBill.RemoveDuplicatedCode_Abstract;
+package PhoneBill.RemoveDuplicatedCode_Composition;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
 
-public class NightlyDiscountPhone extends AbstractPhone{
+public class NightlyDiscountPolicy extends BasicRatePolicy {
 	private static final int LATE_NIGHT_HOUR = 22;
 
 	private Money nightlyAmount;
 	private Money reqularAmount;
 	private Duration seconds;
 
-	public NightlyDiscountPhone(
+	public NightlyDiscountPolicy(
 		Money nightlyAmount, Money reqularAmount, Duration seconds) {
 		this.nightlyAmount = nightlyAmount;
 		this.reqularAmount = reqularAmount;

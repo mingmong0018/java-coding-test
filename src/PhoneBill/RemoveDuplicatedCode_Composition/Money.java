@@ -1,4 +1,4 @@
-package PhoneBill.RemoveDuplicatedCode_Abstract;
+package PhoneBill.RemoveDuplicatedCode_Composition;
 
 import java.math.BigDecimal;
 
